@@ -9,18 +9,15 @@ public class HighLow {
     static JFrame f;
     private Deck deck;
     
-    public static void main(String[] args) throws Exception {
-        HighLow highlow = new HighLow();
-        GHighLow p = new GHighLow();
-        highlow.play();
-        }
+    
     public HighLow(){
         this.deck = new Deck();
     }
     public void play() {
         boolean playing = true;
         while (playing) {
-            m_sumOfScores =+ PlayARound();
+            m_gamesPlayed++;
+            m_sumOfScores += PlayARound();
             char answer = PlayAgainPromt();
             if (answer == 'n') {
                 playing = false;
@@ -30,8 +27,7 @@ public class HighLow {
     }
 
     protected int PlayARound() {
-        m_gamesPlayed++;
-        int CorretGuesses = 0;
+        int CorrectGuesses = 0;
         deck.Shuffle();
         boolean playing = true;
         Card NextCard;
@@ -46,17 +42,17 @@ public class HighLow {
             DisplayNextCard(NextCard);
 
             if ((CurrentCard.GetValue() < NextCard.GetValue() && ans == 'h') || (CurrentCard.GetValue() > NextCard.GetValue() && ans == 'l')) {
-                CorretGuesses++;
-                result = "Your prediction was correct, You made " + CorretGuesses + " correct guesses";
+                CorrectGuesses++;
+                result = "Your prediction was correct, You made " + CorrectGuesses + " correct guesses";
                 DisplayResult(result);
             } else {
-                result = "Your prediction was incorrect, You made " + CorretGuesses + " correct guesses";
+                result = "Your prediction was incorrect, You made " + CorrectGuesses + " correct guesses";
                 DisplayResult(result);
                 playing = false;
             }
             CurrentCard = NextCard;
         }
-        return CorretGuesses;
+        return CorrectGuesses;
     }
 
     protected char GuessPrompt() {
@@ -64,12 +60,12 @@ public class HighLow {
         char answer = 'n';
         while (NoInput) {
             String guess = null;
-            guess = JOptionPane.showInputDialog(f, "Will the next card be higher (H) or lower (L)?", guess);
+            guess = JOptionPane.showInputDialog(f, "Will the next card be higher (h) or lower (l)?", guess);
             if ((guess.equals("h")) || (guess.equals("l"))) {
                 answer = guess.charAt(0);
                 NoInput = false;
             } else {
-                JOptionPane.showMessageDialog(f, "Please input 'h' for HIGHER or 'l' for LOWER.");
+                JOptionPane.showMessageDialog(f, "Please input lowercase letters.");
             }
         }
         return answer;

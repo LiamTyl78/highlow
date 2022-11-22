@@ -1,3 +1,4 @@
+//Liam Tyler
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -48,7 +49,6 @@ public class GHighLow extends HighLow implements ActionListener{
         this.panel.setPreferredSize(new Dimension(350, 275));
         this.panel.setLayout(null);
         
-
         this.frame = new JFrame("Cards");
         this.frame.setSize(350,250);
         this.frame.setResizable(false);
@@ -68,14 +68,11 @@ public class GHighLow extends HighLow implements ActionListener{
         this.panel.add(this.NextCardIcon);
         this.panel.add(this.CurrentCardIcon);
         
-        
-        
         this.dealcardButton = new JButton("Deal");
         this.dealcardButton.setBounds(115, 150, 80, 25);
         this.dealcardButton.addActionListener(this);
         this.panel.add(dealcardButton);
         this.panel.add(this.Insructions);
-        
         
         this.frame.setVisible(true);
     }
@@ -130,7 +127,8 @@ public class GHighLow extends HighLow implements ActionListener{
                 CorrectGuesses++;
                 result = "Your prediction was correct, You made " + CorrectGuesses + " correct guesses";
                 DisplayResult(result);
-            } else {
+            } 
+            else {
                 result = "Your prediction was incorrect, You made " + CorrectGuesses + " correct guesses";
                 DisplayResult(result);
                 playing = false;

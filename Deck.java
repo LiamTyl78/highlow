@@ -1,4 +1,4 @@
-//Liam Tyler
+
 public class Deck {
     public static final int NCARDS = 52;
     private Card[] deck;

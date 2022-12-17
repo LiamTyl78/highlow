@@ -1,4 +1,4 @@
-//Liam Tyler
+
 public class RandomInteger {
     private int min;
     private int max;

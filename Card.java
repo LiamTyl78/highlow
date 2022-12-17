@@ -1,4 +1,4 @@
-//Liam Tyler
+
 public class Card implements Comparable<Card> {
    public enum Suit {SPADES, HEARTS, DIAMONDS, CLUBS}
    
